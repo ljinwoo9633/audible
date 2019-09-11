@@ -1,0 +1,45 @@
+<header>
+    <div>
+        <div>
+            <a href="/dashboard">Go To DashBoard</a>
+        </div>
+    </div>
+</header>
+<section>
+    <div>
+        <div>
+            <form action="/search" method="GET">
+                <input type="text" name="search" value="<%= searchOptions.search %>">
+            </form>
+        </div>
+        <div>
+            <% if(searched_audios !== []) { %>
+                <% searched_audios.forEach((searched_audio) => { %>
+                    <div>
+                        <a href="/detail/audio/<%= searched_audio._id %>"><%= searched_audio.title %></a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div>
+                    <h2>No Audios Here</h2>
+                </div>
+            <% } %>
+        </div>
+        <div>
+            <% if(searched_users !== []) { %>
+                <% searched_users.forEach((searched_user) => { %>
+                    <div>
+                        <a href="/detail/author/<%= searched_user._id%>"><%= searched_user.name %></a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div>
+                    <h2>No Users Here</h2>
+                </div>
+            <% } %>
+        </div>
+    </div>   
+</section>
+<footer>
+
+</footer>

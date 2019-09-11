@@ -1,0 +1,38 @@
+<header>
+    <h1>DashBoard</h1>
+</header>
+<section>
+    hello world!
+    <div>
+        <% audios.forEach((audio) => { %>
+            <div>
+                <div>
+                    <% if(audio.coverImagePath) { %>
+                        <img width="250" height="250" src="<%= audio.coverImagePath %>" alt="">
+                    <% } else { %>
+                        <img width="250" height="250" src="/images/audio.jpg" alt="">
+                    <% } %>
+                </div>
+                <div>
+                    <%= audio.title %>
+                </div>
+                <div>
+                    <audio controls src="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>"></audio>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</section>
+<footer>
+    <div>
+        <div>
+            <a href="/search">Search</a>
+        </div>
+        <div>
+            <a href="/station">Station</a>
+        </div>
+        <div>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+</footer>

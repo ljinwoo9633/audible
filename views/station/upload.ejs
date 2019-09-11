@@ -1,0 +1,27 @@
+<header>
+    <a href="/dashboard">Go To DashBoard</a>
+</header>
+<section>
+    <div>
+        <form action="/station/upload" method="POST" enctype="multipart/form-data">
+            <div>
+                <input type="file" name="cover" class="filepond" accept="image/*">
+            </div>
+            <div>
+                <input type="text" name="title" placeholder="Title" required />
+            </div>
+            <div>
+                <textarea name="description" cols="30" rows="10" required></textarea>
+            </div>
+            <div>
+                <input type="file" name="file" accept="audio/*" required>
+            </div>
+            <div>
+                <button type="submit">Upload</button>
+            </div>
+        </form>
+    </div>
+</section>
+<footer>
+
+</footer>

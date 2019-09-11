@@ -1,0 +1,51 @@
+<header>
+    <a href="/search">Go To Search</a>
+</header>
+<section>
+    <div>
+        <div>
+            <div>
+                <% if(detail_audio.coverImagePath) { %>
+                    <img height="250" width="250" src="<%= detail_audio.coverImagePath %>" alt="">
+                <% } else { %>
+                    <img height="250" width="250" src="/images/audio.jpg" alt="">
+                <% } %>
+                
+            </div>
+            <div>
+                author: <%= author_name %>
+            </div>
+            <div>
+                audio title: <%= detail_audio.title %>
+            </div>
+            <div>
+                audio description: <%= detail_audio.description%>
+            </div>
+            <div>
+                views: <%= detail_audio.views %>
+            </div>
+            <div>
+                audio like: <%= detail_audio.like_number %>
+            </div>
+            <div>
+                <% if(!checked_like) { %>
+                    <form action="/detail/audio/like/<%= detail_audio._id %>" method="POST">
+                        <button type="submit">Like</button>
+                    </form>
+                <% } else { %>
+                    <form action="/detail/audio/dislike/<%= detail_audio._id %>" method="POST">
+                        <button type="submit">Dislike</button>
+                    </form>
+                <% } %>
+            </div>
+            <div>
+                <form action="/detail/audio/<%= detail_audio._id %>" method="POST">
+                    <button type="submit">Add Audio</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+
+</footer>
