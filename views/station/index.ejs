@@ -1,41 +1,52 @@
-<header>
-    <div>
-        <div>
-            <a href="/dashboard">Home</a>
-        </div>
-    </div>
-</header>
-<section>
-    <div>
+<div class="station__frame">
+    <header>
         <div>
             <div>
-                <%= my_name %>
-            </div>
-            <div>
-                <% audios.forEach((audio, index) => { %>
-                    <div>
-                        <% if(audio.coverImagePath) { %>
-                            <img height="250" width="250" src="<%= audio.coverImagePath %>" alt="">
-                        <% } else { %>
-                            <img height="250" width="250" src="/images/audio.jpg" alt="">
-                        <% } %>
-                    </div>
-                    <div>
-                        <h2><%= audio.title %></h2>
-                    </div>
-                    <div>
-                        <audio src="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>" controls></audio>
-                    </div>
-                    <div>
-                        <form action="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>?_method=DELETE" method="POST">
-                            <button type="Delete">Delete</button>
-                        </form>
-                    </div>
-                <% }); %>
+                <a class="home__icon" href="/dashboard"><h1><i class="fas fa-home"></i></h1></a>
             </div>
         </div>
-    </div>
-</section>
-<footer>
-    <a href="/station/upload">Upload Your Audio</a>
-</footer>
+    </header>
+    <section>
+        <div>
+            <div>
+                <div>
+                    <h2><%= my_name %>'s Audio(s)</h2>
+                </div>
+                <div>
+                    <% audios.forEach((audio, index) => { %>
+                        <div class="station__card">
+                            <div>
+                                <% if(audio.coverImagePath) { %>
+                                    <img height="250" width="250" src="<%= audio.coverImagePath %>" alt="">
+                                <% } else { %>
+                                    <img height="250" width="250" src="/images/audio.jpg" alt="">
+                                <% } %>
+                            </div>
+                            <div>
+                                <h2><%= audio.title %></h2>
+                            </div>
+                            <div>
+                                <audio src="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>" controls></audio>
+                            </div>
+                            <div>
+                                <form action="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>?_method=DELETE" method="POST">
+                                    <button class="delete__btn" type="Delete">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="upload__btn">
+            <div>
+                <i class="fas fa-upload"></i>
+            </div>
+            <div>
+                <a class="clear__link__letter" href="/station/upload">Upload Your Audio</a>
+            </div>
+        </div>
+    </footer>
+</div>

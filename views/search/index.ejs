@@ -1,22 +1,25 @@
-<header>
+<header class="search__header__frame">
     <div>
+        <div class="home__icon">
+            <a class="clear__link__letter" href="/dashboard"><h1><i class="fas fa-home"></i></h1></a>
+        </div>
         <div>
-            <a href="/dashboard">Go To DashBoard</a>
+            <form action="/search" method="GET">
+                <input class="search__input" type="text" name="search" value="<%= searchOptions.search %>">
+            </form>
         </div>
     </div>
 </header>
 <section>
     <div>
-        <div>
-            <form action="/search" method="GET">
-                <input type="text" name="search" value="<%= searchOptions.search %>">
-            </form>
+        <div style="text-align: center;">
+            <h3>Audio</h3>
         </div>
         <div>
             <% if(searched_audios !== []) { %>
                 <% searched_audios.forEach((searched_audio) => { %>
-                    <div>
-                        <a href="/detail/audio/<%= searched_audio._id %>"><%= searched_audio.title %></a>
+                    <div class="search__audio__card">
+                        <a class="clear__link__letter" href="/detail/audio/<%= searched_audio._id %>"><%= searched_audio.title %></a>
                     </div>
                 <% }) %>
             <% } else { %>
@@ -25,11 +28,14 @@
                 </div>
             <% } %>
         </div>
+        <div style="text-align: center;">
+            <h3>Author</h3>
+        </div>
         <div>
             <% if(searched_users !== []) { %>
                 <% searched_users.forEach((searched_user) => { %>
-                    <div>
-                        <a href="/detail/author/<%= searched_user._id%>"><%= searched_user.name %></a>
+                    <div class="search__author__card">
+                        <a class="clear__link__letter" href="/detail/author/<%= searched_user._id%>"><%= searched_user.name %></a>
                     </div>
                 <% }) %>
             <% } else { %>

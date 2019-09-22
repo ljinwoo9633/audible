@@ -1,0 +1,11 @@
+@import './partials/background.css';
+@import './partials/frame.css';
+@import './partials/card.css';
+@import './partials/letter.css';
+@import './partials/icon.css';
+@import './partials/search.css';
+@import './partials/btn.css';
+
+body{
+    color: white;
+}

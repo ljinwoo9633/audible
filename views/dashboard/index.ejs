@@ -1,43 +1,53 @@
-<header>
-    <h1>DashBoard</h1>
-</header>
-<section>
-    hello world!
-    <div>
-        <% audios.forEach((audio) => { %>
+<div class="dashboard__frame">
+    <header>
+        <h1>DashBoard</h1>
+    </header>
+    <section>
+        <% if(audios) { %>
             <div>
-                <div>
-                    <% if(audio.coverImagePath) { %>
-                        <img width="250" height="250" src="<%= audio.coverImagePath %>" alt="">
-                    <% } else { %>
-                        <img width="250" height="250" src="/images/audio.jpg" alt="">
-                    <% } %>
-                </div>
-                <div>
-                    <%= audio.title %>
-                </div>
-                <div>
-                    <audio controls src="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>"></audio>
-                </div>
-                <div>
-                    <form action="<%= protocol %>://<%= url_part %>/dashboard/delete/<%= audio._id %>?_method=DELETE">
-                        <button type="submit">Delete</button>
-                    </form>
-                </div>
+                <% audios.forEach((audio) => { %>
+                    <div>
+                        <div>
+                            <% if(audio.coverImagePath) { %>
+                                <img width="250" height="250" src="<%= audio.coverImagePath %>" alt="">
+                            <% } else { %>
+                                <img width="250" height="250" src="/images/audio.jpg" alt="">
+                            <% } %>
+                        </div>
+                        <div>
+                            <%= audio.title %>
+                        </div>
+                        <div>
+                            <audio controls src="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>"></audio>
+                        </div>
+                        <div>
+                            <form action="<%= protocol %>://<%= url_part %>/dashboard/delete/<%= audio._id %>?_method=DELETE">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                <% }) %>
             </div>
-        <% }) %>
-    </div>
-</section>
-<footer>
-    <div>
-        <div>
-            <a href="/search">Search</a>
+        <% } else { %>
+            <div>
+                Get Free Audios
+            </div>
+        <% } %>
+    </section>
+    <footer>
+        <div class="dashboard__footer__frame">
+            <div class="select__card">
+                <i class="fas fa-headphones-alt"></i>
+                <a class="clear__link__letter" href="/search">Search</a>
+            </div>
+            <div class="select__card">
+                <i class="fas fa-place-of-worship"></i>
+                <a class="clear__link__letter" href="/station">Station</a>
+            </div>
+            <div class="select__card">
+                <i class="fas fa-sign-out-alt"></i>
+                <a class="clear__link__letter" href="/logout">Logout</a>
+            </div>
         </div>
-        <div>
-            <a href="/station">Station</a>
-        </div>
-        <div>
-            <a href="/logout">Logout</a>
-        </div>
-    </div>
-</footer>
+    </footer>
+</div>
