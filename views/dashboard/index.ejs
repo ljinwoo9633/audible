@@ -19,6 +19,11 @@
                 <div>
                     <audio controls src="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>"></audio>
                 </div>
+                <div>
+                    <form action="<%= protocol %>://<%= url_part %>/dashboard/delete/<%= audio._id %>?_method=DELETE">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
             </div>
         <% }) %>
     </div>

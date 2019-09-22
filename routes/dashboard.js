@@ -15,6 +15,21 @@ router.get('/', ensureAuthenticated , async(req, res) => {
     })
 })
 
+router.get('/delete/:id', async(req, res) => {
+    User.findOne({_id: req.user._id}).then((user) => {
+        let i = 0;
+        while(i < user.upload_audios.length){
+            if(String(user.upload_audios[i]) === String(req.params.id)){
+                break;
+            }
+            i = i + 1;
+        }
+        user.upload_audios.splice(i, 1);
+        user.save().then(() => {
+            res.redirect('/dashboard');
+        })
+    })
+})
 
 
 
