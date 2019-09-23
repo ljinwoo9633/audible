@@ -1,51 +1,87 @@
-<header>
-    <a href="/search">Go To Search</a>
-</header>
-<section>
-    <div>
+<div class="detail__audio__frame">
+    <header>
+        <a class="clear__link__letter" href="/search"><h1><i class="fas fa-home"></i></h1></a>
+    </header>
+    <section>
         <div>
             <div>
-                <% if(detail_audio.coverImagePath) { %>
-                    <img height="250" width="250" src="<%= detail_audio.coverImagePath %>" alt="">
-                <% } else { %>
-                    <img height="250" width="250" src="/images/audio.jpg" alt="">
-                <% } %>
+                <div>
+                    <% if(detail_audio.coverImagePath) { %>
+                        <img height="250" width="250" src="<%= detail_audio.coverImagePath %>" alt="">
+                    <% } else { %>
+                        <img height="250" width="250" src="/images/audio.jpg" alt="">
+                    <% } %>
+                    
+                </div>
+
+
+                <div>
+                    <div>
+                        <div>
+                            <h2>Audio Title</h2>
+                        </div>
+                        <div>
+                            <%= detail_audio.title %>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>Author</h3>
+                        </div>
+                        <div>
+                            <%= author_name %>
+                        </div>
+                    </div>   
+                </div>
+                
+                <div>
+                    <% if(!checked_like) { %>
+                        <form action="/detail/audio/like/<%= detail_audio._id %>" method="POST">
+                            <button class="like__btn" type="submit"><i class="fas fa-heart"></i> Like</button>
+                        </form>
+                    <% } else { %>
+                        <form action="/detail/audio/dislike/<%= detail_audio._id %>" method="POST">
+                            <button class="dislike__btn" type="submit"><i class="fas fa-heart-broken"></i> Dislike</button>
+                        </form>
+                    <% } %>
+                </div>
+                <div>
+                    <form action="/detail/audio/<%= detail_audio._id %>" method="POST">
+                        <button class="add__btn" type="submit"><i class="fas fa-plus"></i> Add Audio</button>
+                    </form>
+                </div>
+
+                <div>
+                    <div>
+                        <h3>Audio Description</h3>
+                    </div>
+                    <div>
+                        <%= detail_audio.description%>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <h4>Views</h4>
+                    </div>
+                    <div>
+                        <%= detail_audio.views %>
+                    </div> 
+                </div>
+
+                <div>
+                    <div>
+                        <h4>Audio Likes</h4>
+                    </div>
+                    <div>
+                        <%= detail_audio.like_number %>
+                    </div>
+                </div>
                 
             </div>
-            <div>
-                author: <%= author_name %>
-            </div>
-            <div>
-                audio title: <%= detail_audio.title %>
-            </div>
-            <div>
-                audio description: <%= detail_audio.description%>
-            </div>
-            <div>
-                views: <%= detail_audio.views %>
-            </div>
-            <div>
-                audio like: <%= detail_audio.like_number %>
-            </div>
-            <div>
-                <% if(!checked_like) { %>
-                    <form action="/detail/audio/like/<%= detail_audio._id %>" method="POST">
-                        <button type="submit">Like</button>
-                    </form>
-                <% } else { %>
-                    <form action="/detail/audio/dislike/<%= detail_audio._id %>" method="POST">
-                        <button type="submit">Dislike</button>
-                    </form>
-                <% } %>
-            </div>
-            <div>
-                <form action="/detail/audio/<%= detail_audio._id %>" method="POST">
-                    <button type="submit">Add Audio</button>
-                </form>
-            </div>
         </div>
-    </div>
-</section>
-<footer>
+    </section>
+    <footer>
 
-</footer>
+    </footer>
+</div>

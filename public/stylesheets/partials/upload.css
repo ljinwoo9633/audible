@@ -1,0 +1,10 @@
+.title__input{
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.description__input{
+    font-size: 1.3rem;
+    border-radius: 5px;
+    resize: none;
+}

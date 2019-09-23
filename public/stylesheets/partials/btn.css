@@ -7,6 +7,7 @@
     border-radius: 5px;
     padding: 0.8rem 0rem;
     text-align: center;
+    font-weight: bold;
 }
 
 .upload__btn{
@@ -16,4 +17,73 @@
     padding: 0.60rem;
     width: 100%;
     transform: translate(-2.5%, 0%);
+    font-weight: bold;
+}
+
+.like__btn{
+    all: unset;
+    cursor: pointer;
+    background-color: #F012BE;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.dislike__btn{
+    
+    all: unset;
+    cursor: pointer;
+    background-color: #85144b;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.add__btn{
+    all: unset;
+    cursor: pointer;
+    background-color: #01FF70;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.follow__btn{
+    all: unset;
+    cursor: pointer;
+    background-color: #01FF70;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.unfollow__btn{
+    all: unset;
+    cursor: pointer;
+    background-color: #FF4136;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.upload__detail__btn{
+    all: unset;
+    cursor: pointer;
+    background-color: #01FF70;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    
 }

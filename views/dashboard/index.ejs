@@ -4,25 +4,30 @@
     </header>
     <section>
         <% if(audios) { %>
-            <div>
+            <div class="dashboard__audio__frame station__card">
                 <% audios.forEach((audio) => { %>
                     <div>
                         <div>
                             <% if(audio.coverImagePath) { %>
-                                <img width="250" height="250" src="<%= audio.coverImagePath %>" alt="">
+                                <img style="border-radius: 5px;" width="250" height="250" src="<%= audio.coverImagePath %>" alt="">
                             <% } else { %>
-                                <img width="250" height="250" src="/images/audio.jpg" alt="">
+                                <img style="border-radius: 5px;" width="250" height="250" src="/images/audio.jpg" alt="">
                             <% } %>
                         </div>
                         <div>
-                            <%= audio.title %>
+                            <div>
+                                <h2>Title</h2>
+                            </div>
+                            <div>
+                                <h4><%= audio.title %></h4>
+                            </div>
                         </div>
                         <div>
                             <audio controls src="<%= protocol %>://<%= url_part %>/station/audio/<%= audio.source %>"></audio>
                         </div>
                         <div>
                             <form action="<%= protocol %>://<%= url_part %>/dashboard/delete/<%= audio._id %>?_method=DELETE">
-                                <button type="submit">Delete</button>
+                                <button style="margin-top: 0.5rem;" class="delete__btn" type="submit">Delete</button>
                             </form>
                         </div>
                     </div>

@@ -1,23 +1,41 @@
+<div class="upload__frame">
 <header>
-    <a href="/dashboard">Go To DashBoard</a>
+    <a class="clear__link__letter" href="/dashboard"><h1><i class="fas fa-home"></i></h1></a>
 </header>
 <section>
     <div>
         <form action="/station/upload" method="POST" enctype="multipart/form-data">
             <div>
+                <div>
+                    <h2>Cover Image</h2>
+                    <h4>Image Only!</h4>
+                </div>
                 <input type="file" name="cover" class="filepond" accept="image/*">
             </div>
+
             <div>
-                <input type="text" name="title" placeholder="Title" required />
+                <div>
+                    <h2>Title</h2>
+                </div>
+                <input class="title__input" type="text" name="title" placeholder="Title" required />
             </div>
+            
             <div>
-                <textarea name="description" cols="30" rows="10" required></textarea>
+                <div>
+                    <h2>Description</h2>
+                </div>
+                <textarea class="description__input" name="description" cols="30" rows="10" required></textarea>
             </div>
+
             <div>
+                <div>
+                    <h2>The Best Audio</h2>
+                </div>
                 <input type="file" name="file" accept="audio/*" required>
             </div>
+
             <div>
-                <button type="submit">Upload</button>
+                <button class="upload__detail__btn" type="submit"><i class="fas fa-upload"></i> Upload</button>
             </div>
         </form>
     </div>
@@ -25,3 +43,5 @@
 <footer>
 
 </footer>
+
+</div>

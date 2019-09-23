@@ -5,6 +5,7 @@
 @import './partials/icon.css';
 @import './partials/search.css';
 @import './partials/btn.css';
+@import './partials/upload.css';
 
 body{
     color: white;

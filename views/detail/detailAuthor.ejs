@@ -1,47 +1,62 @@
-<header>
-    <a href="/search">Go To Search</a>
-</header>
-<section>
-    <div>
+<div class="detail__author__frame">
+    <header>
+        <a class="clear__link__letter" href="/search"><h1><i class="fas fa-home"></i></h1></a>
+    </header>
+    <section>
         <div>
             <div>
-                Image File
-            </div>
-            <div>
-                <%= detail_user.name %>
-            </div>
-            <div>
-                <%= detail_user.follower_number %>
-            </div>
-            <div>
-                <% if(String(detail_user._id)===String(me)) { %>       
-                    
-                    
-                <% } else { %>
-                    <% if(!checked_follow) { %>
-                        <form action="/detail/author/follow/<%= detail_user._id %>" method="POST">
-                            <button type="submit">FOLLOW</button>
-                        </form>
+                
+                <div>
+                    <div>
+                        <h2>Name</h2>
+                    </div>
+                    <div>
+                        <%= detail_user.name %>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <h3>Follower Number</h3>
+                    </div>
+                    <div>
+                        <%= detail_user.follower_number %>
+                    </div>
+                </div>
+
+                <div>
+                    <% if(String(detail_user._id)===String(me)) { %>       
+                        
+                        
                     <% } else { %>
-                        <form action="/detail/author/unfollow/<%= detail_user._id %>" method="POST">
-                            <button type="submit">UNFOLLOW</button>
-                        </form>
-                    <% } %>  
-                <% } %>
-            </div>
-            <div>
-                <% detail_audios.forEach((audio) => { %>
-                    <% if(audio.coverImagePath) { %>
-                        <a href="/detail/audio/<%= audio._id %>"><img width="250" height="250" src="<%= audio.coverImagePath %>" alt=""></a>
-                    <% } else { %>
-                        <a href="/detail/audio/<%= audio._id %>"><img width="250" height="250" src="/images/audio.jpg" alt=""></a>
+                        <% if(!checked_follow) { %>
+                            <form action="/detail/author/follow/<%= detail_user._id %>" method="POST">
+                                <button class="follow__btn" type="submit"><i class="fas fa-user-plus"></i> FOLLOW</button>
+                            </form>
+                        <% } else { %>
+                            <form action="/detail/author/unfollow/<%= detail_user._id %>" method="POST">
+                                <button class="unfollow__btn" type="submit"><i class="fas fa-user-alt-slash"></i> UNFOLLOW</button>
+                            </form>
+                        <% } %>  
                     <% } %>
-                <% }) %>
+                </div>
+
+                <div>
+                    <div>
+                        <h3><%= detail_user.name %>'s Audio(s)</h3>
+                    </div>
+                    <% detail_audios.forEach((audio) => { %>
+                        <% if(audio.coverImagePath) { %>
+                            <a href="/detail/audio/<%= audio._id %>"><img style="border-radius: 5px;" width="150" height="150" src="<%= audio.coverImagePath %>" alt=""></a>
+                        <% } else { %>
+                            <a href="/detail/audio/<%= audio._id %>"><img style="border-radius: 5px;" width="150" height="150" src="/images/audio.jpg" alt=""></a>
+                        <% } %>
+                    <% }) %>
+                </div>
             </div>
         </div>
-            
-    </div>
-</section>
-<footer>
-    
-</footer>
+    </section>
+    <footer>
+        
+    </footer>
+</div>
